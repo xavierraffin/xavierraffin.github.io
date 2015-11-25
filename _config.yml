@@ -1,0 +1,25 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Xavier Raffin
+tagline:          'Personnal website'
+description:      'Personnal website of a software architect <a href="https://twitter.com/xavierraffin" target="_blank">@xavierraffin</a>.'
+url:              http://xavierraffin.com
+baseurl:          /
+
+author:
+  name:           'Xavier Raffin'
+  twitter:        https://twitter.com/xavierraffin
+  linkedin:       https://www.linkedin.com/in/xavierraffin 
+  github:         https://github.com/xavierraffin   
+
+paginate:         5
+
+# Custom vars
+version:          0.1
