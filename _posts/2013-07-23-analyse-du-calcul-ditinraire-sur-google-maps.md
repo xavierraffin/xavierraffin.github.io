@@ -5,6 +5,8 @@ created: 1374602467
 ---
 Un calculateur d'itinéraire ne pourra jamais prévoir votre temps de trajet exact avec une certitude de 100%.
 
+excerpt_separator
+
 Il est par exemple impossible de savoir si vous aurez les feux au vert ou non.
 Votre vitesse estimée est donc une moyenne tenant compte d'un ou de plusieurs de ces éléments :
 <ul>

@@ -9,6 +9,8 @@ Tisséo ouvre aujourd'hui un plan interactif de son réseau sur son site web :
 
 Cet outil inaugure un nouveau fond de plan qui se généralisera sur les autres support numériques Tisséo.
 
+excerpt_separator
+
 C'est avec un immense plaisir que je vous présente le résultat de longs mois de travail intensif :
 
 <center><img src="/sites/xavierraffin.com/files/plan-interactif-tisseo-11.png" />

@@ -9,6 +9,8 @@ created: 1383258714
 
 Après <a href="/content/plan-interatif-javascript-tisseo">le plan interactif Tisséo</a>, j'ai le plaisir de vous présenter un autre projet réalisé avec <a href="http://xavierraffin.com/content/pr%C3%A9sentation-de-synthese">SYNTHESE</a> en préparation depuis plusieurs mois à Tisséo : le <b>Calculateur d'Itinéraire Multi-Modal</b> (CIMM).<br><br>
 
+excerpt_separator
+
 Ce projet, entièrement réalisé par nos équipes Tisséo est le fruit d'un partenariat entre plusieurs organisations publiques : l'état, la région Midi-Pyrennées, le département de la Haute-Garonne, Toulouse-Métropôle, et Tisséo.<br><br>
 <div style="float:right">
 <center>
