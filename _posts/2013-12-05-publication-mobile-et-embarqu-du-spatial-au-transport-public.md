@@ -3,19 +3,20 @@ layout: post
 title: 'Publication : Mobile et Embarqué, du spatial au transport public'
 created: 1386278955
 ---
+J'ai publié un article dans le dernier numéro du <b>magasine Interface</b> (le magasine des INSA).
+
+Le thème de ce numéro est :
+
+<b>"Les nouveaux sujets de l'ingénierie informatique: cloud, sécurité informatique, mobilité, protection de la vie privée"</b>.
+
+excerpt_separator
+
 <div style="float:right">
 <center>
 <img src="/sites/xavierraffin.com/files/couv-interfacte-118.PNG" />
 <i>La couverture du numéro 118 d'interface</i>
 </center>
 </div>
-J'ai publié un article dans le dernier numéro du <b>magasine Interface</b> (le magasine des INSA).
-
-excerpt_separator
-
-Le thème de ce numéro est :
-
-<b>"Les nouveaux sujets de l'ingénierie informatique: cloud, sécurité informatique, mobilité, protection de la vie privée"</b>.
 
 Les articles devaient prendre la forme de témoignages d'ingénieurs INSA travaillant dans ce domaine à destination de nos collègues et élèves-ingénieurs.
 
