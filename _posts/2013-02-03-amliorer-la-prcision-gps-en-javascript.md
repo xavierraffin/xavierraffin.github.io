@@ -2,6 +2,7 @@
 layout: post
 title: Améliorer la précision GPS en JavaScript
 created: 1359926517
+redirect_from: "/content/améliorer-la-précision-gps-en-javascript/"
 ---
 <div style="float:right">
 <img src="/sites/xavierraffin.com/files/geolocalistion-javascript-html5_0.png" style="border:1px solid" alt="géolocalisation JavaScript HTML5 depuis un mobile" />

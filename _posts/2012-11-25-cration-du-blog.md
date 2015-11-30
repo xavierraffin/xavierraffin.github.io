@@ -2,6 +2,7 @@
 layout: post
 title: Création du blog
 created: 1353881847
+redirect_from: "/content/création-du-blog/"
 ---
 J'ai donné hier <a href="/content/conference-tisseo-capitole-du-libre-2012">une conférence</a> à l'occasion de l’événement logiciel libre <a href="http://www.capitoledulibre.org" target="_blank">Capitole Du Libre</a> à Toulouse.
 

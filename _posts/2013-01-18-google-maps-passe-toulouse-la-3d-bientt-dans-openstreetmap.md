@@ -2,6 +2,7 @@
 layout: post
 title: Google maps passe Toulouse à la 3D ! Bientôt dans OpenStreetMap ?
 created: 1358546657
+redirect_from: "/content/google-maps-passe-toulouse-à-la-3d-bientôt-dans-openstreetmap/"
 ---
 J'ai constaté très récemment que la vue satellite de Google Maps étaient passée en 3D isométriques sur les niveaux de zoom les plus importants.
 

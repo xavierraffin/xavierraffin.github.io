@@ -2,6 +2,7 @@
 layout: post
 title: Libérons les cahiers Debian
 created: 1370375053
+redirect_from: "/content/libérons-les-cahiers-debian/"
 ---
 <div style="float:right">
 <img src="/sites/xavierraffin.com/files/logo_debian.png" />
