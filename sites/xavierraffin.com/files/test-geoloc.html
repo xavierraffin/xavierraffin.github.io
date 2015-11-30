@@ -1,0 +1,201 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>xavierraffin.com | test geolocalisation JavaScript</title>
+<!--
+Cette page permet de comparer les positions obtenues par un telephone mobile
+Ainsi que celle obtenue par la methode decrite dans l'article http://xavierraffin.com/content/améliorer-la-précision-gps-en-javascript
+
+Auteur: Xavier Raffin - Tisseo 2013
+-->
+<style type="text/css">
+ #basicMap2, #basicMap {
+    width: 600;
+    height: 600;
+    margin: 0;
+ }
+</style>
+
+<script src="http://openlayers.org/api/OpenLayers.js"></script>
+<script type="text/javascript">
+function init() {
+/*
+ * Construction des deux cartes
+ */
+  map = new OpenLayers.Map("basicMap");
+  var mapnik = new OpenLayers.Layer.OSM();
+  map.addLayer(mapnik);
+  map2 = new OpenLayers.Map("basicMap2");
+  var mapnik2 = new OpenLayers.Layer.OSM();
+  map2.addLayer(mapnik2);
+        
+  var markers2 = new OpenLayers.Layer.Markers( "Markers" );
+  map2.addLayer(markers2);
+        
+  var markers = new OpenLayers.Layer.Markers( "Markers" );
+  map.addLayer(markers);
+        
+  var bestAcc = 100000;
+  var bestLat;
+  var bestLon;
+  var cpt = 0;
+  var time = 0;
+  var time2 = 0;
+  var start = new Date().getTime();
+
+
+  var watcher = navigator.geolocation.watchPosition(
+  function (location)
+  {
+    time = new Date().getTime() - start;
+    time = time / 1000;
+
+    function stopWatchTest()
+    {
+        time = new Date().getTime() - start;
+        time = time / 1000;
+        if(
+            //While waiting grow, tolerance grow
+            (bestAcc < 31) ||
+            (bestAcc < 41 && time > 1) ||
+            (bestAcc < 51 && time > 2) ||
+            (bestAcc < 61 && time > 2.5) || 
+            (bestAcc < 71 && time > 3) || //IPhone
+            (bestAcc < 81 && time > 5) ||
+            (bestAcc < 91 && time > 6) ||
+            (bestAcc < 101 && time > 7) ||
+            (bestAcc < 121 && time > 10) ||
+            (bestAcc < 131 && time > 12) ||
+            (bestAcc < 141 && time > 14) ||
+            (bestAcc < 151 && time > 15) ||
+            (bestAcc < 166 && time > 20) ||
+            (time > 30)
+        )
+        {
+            window.navigator.geolocation.clearWatch( watcher );
+            clearInterval(watchTest);
+            
+           /* Mis en commentaire pour aider "lauriou"
+            if(bestAcc >= 166)
+            {
+                document.getElementById("err").innerHTML = "Votre emplacement n'a pu �tre d�termin� avec pr�cision.";
+            }
+            else
+            {*/
+                setBest(bestLon,bestLat, bestAcc, cpt, time,2);
+            //}
+        }
+                document.getElementById("err").innerHTML += ".";
+    }
+
+    if(cpt==0)
+    {
+        firstLat=location.coords.latitude;
+        firstLon=location.coords.longitude;
+        firstAcc=location.coords.accuracy;
+        start = new Date().getTime();
+        if(location.coords.accuracy < 65)
+        {
+            window.navigator.geolocation.clearWatch( watcher );    
+            time2 = 0;
+            setBest(firstLon,firstLat, firstAcc, cpt, time2,1);
+        }
+        else
+        {
+            setBest(firstLon,firstLat, firstAcc, cpt, time2,1);
+            var watchTest = window.setInterval(stopWatchTest,100);
+        }
+    }
+    else
+    {
+        time2 = new Date().getTime() - start;
+        time2 = time2 / 1000;
+        if(location.coords.accuracy <= bestAcc )
+        {
+            bestLat=location.coords.latitude;
+            bestLon=location.coords.longitude;
+            bestAcc=location.coords.accuracy;
+        }
+    }
+    document.getElementById("long").innerHTML += location.coords.latitude + ", ";
+    document.getElementById("lat").innerHTML += location.coords.longitude + ", ";
+    document.getElementById("acc").innerHTML += location.coords.accuracy + ", ";
+    document.getElementById("time").innerHTML += time2 + ", ";
+
+    var lonLat2 = new OpenLayers.LonLat(location.coords.longitude,location.coords.latitude)
+          .transform(
+            new OpenLayers.Projection("EPSG:4326"), //transform from WGS 1984
+                map.getProjectionObject() //to Spherical Mercator Projection
+          );
+    markers2.addMarker(new OpenLayers.Marker(lonLat2));
+
+    if(cpt==0)
+    {
+        map2.setCenter(lonLat2, 18);
+    }
+
+    cpt++;
+  },
+  function (error) {
+    switch(error.code){
+      case error.PERMISSION_DENIED:
+        document.getElementById("err").innerHTML = "Vous avez interdit l'accès à votre localisation. Veuillez l'autoriser pour bénéficier du service.";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        document.getElementById("err").innerHTML = "Votre emplacement n'a pu être déterminé.";
+        break;
+      case error.TIMEOUT:
+        document.getElementById("err").innerHTML = "Le service ne r�pond pas.";
+        break;
+    }
+  },
+  {timeout:30000,enableHighAccuracy:true,maximumAge:0}); // fin de l'appel à watchPosition
+
+
+  function setBest(lon,lat, acc, cpt, time,cause)
+  {
+    document.getElementById("blong").innerHTML += lon;
+    document.getElementById("blat").innerHTML += lat;
+    document.getElementById("bacc").innerHTML += acc;    
+    document.getElementById("bcpt").innerHTML += cpt;
+    document.getElementById("btime").innerHTML += time;
+    document.getElementById("bcause").innerHTML += cause;
+
+    var lonLat = new OpenLayers.LonLat(lon,lat)
+        .transform(
+          new OpenLayers.Projection("EPSG:4326"), //transform from WGS 1984
+                map.getProjectionObject() //to Spherical Mercator Projection
+        );
+
+    markers.addMarker(new OpenLayers.Marker(lonLat));
+
+    map.setCenter(lonLat, 18);
+  }
+}
+</script>
+</head>
+<body onload="init();">
+Options : {timeout:15000, enableHighAccuracy:true, maximumAge:0}
+<br><br>
+Position:<br>
+<div id="long">lon : </div>
+<div id="lat">lat : </div>
+<div id="acc">acc : </div>
+<div id="time">time : </div>
+<br>
+<h1>Positions renvoyée par le téléphone :</h1>
+<div id="basicMap2"></div>
+
+Errors:<br>
+<div id="err">Votre emplacement n'a pu être déterminé avec précision..</div>
+Best position:<br>
+<div id="blong">lon : </div>
+<div id="blat">lat :</div>
+<div id="bacc">acc : </div>
+<div id="btime">time : </div>
+<div id="bcpt">cpt : </div>
+<div id="bcause">cause : </div>
+<br>
+<h1>Position retenue par l'algorithme :</h1>
+<div id="basicMap"></div>
+
+</body></html>
