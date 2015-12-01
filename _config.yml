@@ -12,8 +12,8 @@ tagline:          'Personnal website'
 description:      'Personnal website of a software architect <a href="https://twitter.com/xavierraffin" target="_blank">@xavierraffin</a>.'
 url:              http://xavierraffin.com
 baseurl:          /
-
 googleanalytics:  UA-36576424-1
+disqus:           xavierraffin
 
 author:
   name:           'Xavier Raffin'
