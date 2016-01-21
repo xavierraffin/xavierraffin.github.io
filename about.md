@@ -3,10 +3,6 @@ layout: page
 title: About
 ---
 
-<p class="message">
- J'aime le chocolat 
-</p>
-
 Passionate about software design, I start created an IT service and development Team in a space industry small business.
 After an experience in embedded software at Airbus, I have now joined Tisséo where I hold a technical leader role.
 
@@ -17,11 +13,8 @@ I also leverage my "user experience" and "digital marketing" sensibilities in th
 
 Finally, I have experience and convictions in the OpenSource and OpenData areas.
 
-## Setup
+I live in Toulouse in France.
 
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
+This blog is developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
 
 Thanks for reading!
