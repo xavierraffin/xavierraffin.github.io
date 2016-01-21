@@ -19,7 +19,7 @@ I made free softwares that provides <a href="https://data.toulouse-metropole.fr/
 
 I also <a href="http://www.openstreetmap.org/user/xrn">contribute to OSM</a>
 
-# Website & Mobile
+# Web & Mobile
 
 <a href="http://www.tisseo.fr">Tisséo website</a>
 
@@ -31,3 +31,6 @@ I also <a href="http://www.openstreetmap.org/user/xrn">contribute to OSM</a>
 
 <a href="https://itunes.apple.com/fr/app/id818553522?mt=8">Tisséo iOS app</a>
 
+<a href="http://regisraffin.com">My bro's website</a>
+
+<a href="http://www.maneki-lab.com">My bro's production company website</a>
