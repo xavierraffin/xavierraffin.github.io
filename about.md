@@ -3,6 +3,8 @@ layout: page
 title: About
 ---
 
+_Yes this is a frenglish blog_
+
 Passionate about software design, I start created an IT service and development Team in a space industry small business.
 After an experience in embedded software at Airbus, I have now joined Tisséo where I hold a technical leader role.
 
@@ -15,6 +17,6 @@ Finally, I have experience and convictions in the OpenSource and OpenData areas.
 
 I live in Toulouse in France.
 
-This blog is developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
+_This blog is developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)_
 
 Thanks for reading!
