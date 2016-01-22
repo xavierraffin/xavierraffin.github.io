@@ -2,6 +2,7 @@
 layout: post
 title: Analyse du calcul d'itinéraire sur Google Maps
 created: 1374602467
+comments: true
 redirect_from: "/content/analyse-du-calcul-ditinéraire-sur-google-maps/"
 ---
 Un calculateur d'itinéraire ne pourra jamais prévoir votre temps de trajet exact avec une certitude de 100%.

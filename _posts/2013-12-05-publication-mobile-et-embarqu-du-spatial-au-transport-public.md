@@ -2,6 +2,7 @@
 layout: post
 title: 'Publication : Mobile et Embarqué, du spatial au transport public'
 created: 1386278955
+comments: true
 redirect_from: "/content/publication-mobile-et-embarque-du-spatial-au-transport-public/"
 ---
 J'ai publié un article dans le dernier numéro du <b>magasine Interface</b> (le magasine des INSA).

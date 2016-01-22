@@ -2,6 +2,7 @@
 layout: post
 title: Tracking mémoire et profiling sur les gros projets
 created: 1354381441
+comments: true
 redirect_from: "/content/traking-mémoire-et-profiling-sur-les-gros-projets/"
 ---
 J'ai récemment fait l'acquisition d'un superbe T-shirt qui arbore fièrement un logo que vous reconnaîtrez tous :

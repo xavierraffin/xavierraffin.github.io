@@ -2,6 +2,7 @@
 layout: post
 title: Calculateur d'itinéraire multimodal Toulouse et Haute-Garonne
 created: 1383258714
+comments: true
 redirect_from: "/content/calculateur-itineraire-multimodal-toulouse-haute-garonne/"
 ---
 <link rel=StyleSheet href="http://cimm.tisseo.fr/direct-mb-cimm-1.0/cimm.css" type="text/css" media="all" />

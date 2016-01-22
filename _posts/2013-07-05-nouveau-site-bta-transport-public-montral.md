@@ -2,6 +2,7 @@
 layout: post
 title: Nouveau site bêta transport public Montréal
 created: 1373051836
+comments: true
 redirect_from: "/content/nouveau-site-bêta-transport-public-montréal/"
 ---
 La STM (organisme de transport public de Montréal) vient de sortir une bêta version de son nouveau site : <a href="http://beta.stm.info" target="_blank">http://beta.stm.info</a>

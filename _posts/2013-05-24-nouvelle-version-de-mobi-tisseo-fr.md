@@ -2,6 +2,7 @@
 layout: post
 title: Nouvelle version de mobi.tisseo.fr
 created: 1369416941
+comments: true
 redirect_from: "/content/nouvelle-version-de-mobitisseofr/"
 ---
 Après des mois de travail minutieux et plusieurs mises à jour nocturnes, j'ai le plaisir de vous présenter la nouvelle version de <b>mobi.tisseo.fr</b> !

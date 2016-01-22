@@ -2,6 +2,7 @@
 layout: post
 title: 'Innovation Tisséo : un plan interactif'
 created: 1381349144
+comments: true
 redirect_from: "/content/plan-interactif-javascript-tisseo/"
 ---
 Tisséo ouvre aujourd'hui un plan interactif de son réseau sur son site web :

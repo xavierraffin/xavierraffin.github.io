@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Création du blog
+comments: true
 created: 1353881847
 redirect_from: "/content/création-du-blog/"
 ---

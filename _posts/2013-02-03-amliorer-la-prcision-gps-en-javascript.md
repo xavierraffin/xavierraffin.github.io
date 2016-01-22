@@ -2,6 +2,7 @@
 layout: post
 title: Améliorer la précision GPS en JavaScript
 created: 1359926517
+comments: true
 redirect_from: "/content/améliorer-la-précision-gps-en-javascript/"
 ---
 <div style="float:right">

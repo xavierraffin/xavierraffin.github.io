@@ -2,6 +2,7 @@
 layout: post
 title: Présentation de SYNTHESE
 created: 1354200180
+comments: true
 redirect_from: "/content/présentation-de-synthese/"
 ---
 A de nombreuses reprises dans ce blog je fait référence au projet <b>SYNTHESE</b>.

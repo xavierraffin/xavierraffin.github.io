@@ -2,6 +2,7 @@
 layout: post
 title: Conférence Tisséo Capitole du Libre 2012
 created: 1355162715
+comments: true
 redirect_from: "/content/conférence-tisséo-capitole-du-libre-2012/"
 ---
 J'ai donné une conférence lors du <a href="http://www.capitoledulibre.org/2012/conferences-techniques-samedi-24-novembre.html#conf-tisseo"  target="_blank">Capitole du Libre 2012</a> ayant pour titre :

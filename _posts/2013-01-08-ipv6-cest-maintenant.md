@@ -2,6 +2,7 @@
 layout: post
 title: IPv6 c'est maintenant !
 created: 1357681891
+comments: true
 redirect_from: "/content/ipv6-fonctionnement-description-configuration/"
 ---
 <div style="float:right">
