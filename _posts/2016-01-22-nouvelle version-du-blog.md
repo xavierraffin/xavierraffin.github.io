@@ -6,8 +6,6 @@ created: 1353881847
 redirect_from: "/content/nouvelle-version-du-blog/"
 ---
 
-# Nouvelle version de mon blog
-
 Avec cette nouvelle année viennent les bonnes résolutions.
 
 Alors voila, j'ai finalisé la refonte de mon site perso (enfin en tout cas je l'ai mis en ligne).
