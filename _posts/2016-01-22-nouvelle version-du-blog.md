@@ -38,6 +38,10 @@ Vous pouvez donc ne mettre en conf que le code source de votre site et non pas l
 
 Voici par exemple le dépôt du code de mon blog : https://github.com/xavierraffin/xavierraffin.github.io 
 
+> __Astuce :__
+Jeckyll offre des outils de migrations depuis les moteurs de blog les plus répandus : WordPress, Drupal, Joomla, ...
+*Et ça marche du tonnerre :* tous mes articles ont étés migrés en gardant la mise en page, les images et même les partie dynamiques en Javascript comme içi {% post_url calculateur-ditinraire-multimodal-toulouse-et-haute-garonne %}
+
 ## Limitations
 
 Alors effectivement, il est impossible de réaliser une page dynamique côté serveur avec un tel système.
