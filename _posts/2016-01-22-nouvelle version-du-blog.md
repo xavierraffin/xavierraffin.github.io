@@ -40,7 +40,7 @@ Voici par exemple le dépôt du code de mon blog : https://github.com/xavierraff
 
 > __Astuce :__
 Jeckyll offre des outils de migrations depuis les moteurs de blog les plus répandus : WordPress, Drupal, Joomla, ...
-*Et ça marche du tonnerre :* tous mes articles ont étés migrés en gardant la mise en page, les images et même les partie dynamiques en Javascript comme içi {% post_url 2013-10-31-calculateur-ditinraire-multimodal-toulouse-et-haute-garonne %}
+*Et ça marche du tonnerre :* tous mes articles ont étés migrés en gardant la mise en page, les images et même les partie dynamiques en Javascript comme [içi]({% post_url 2013-10-31-calculateur-ditinraire-multimodal-toulouse-et-haute-garonne %})
 
 ## Limitations
 
