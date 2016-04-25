@@ -6,11 +6,14 @@ comments: true
 redirect_from: "/content/libérons-les-cahiers-debian/"
 excerpt_separator: <!--more-->
 ---
+<div style="overflow: auto;">
 <div style="float:right">
 <img src="/sites/xavierraffin.com/files/logo_debian.png" />
 </div>
 
 Je viens de verser 50 euros en soutient à la libération du livre "Cahier de l'Admin Debian" sur ulule.com.
+
+</div>
 
 <!--more-->
 
