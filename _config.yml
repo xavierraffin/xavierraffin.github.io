@@ -8,7 +8,7 @@ relative_permalinks: true
 
 # Setup
 title:            Xavier Raffin
-tagline:          'Personnal website'
+tagline:          'Software Architect'
 description:      'Personnal website of a software architect <a href="https://twitter.com/xavierraffin" target="_blank">@xavierraffin</a>.'
 url:              http://xavierraffin.com
 baseurl:          /
