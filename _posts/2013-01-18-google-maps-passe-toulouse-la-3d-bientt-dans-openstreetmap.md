@@ -4,6 +4,7 @@ title: Google maps passe Toulouse à la 3D ! Bientôt dans OpenStreetMap ?
 created: 1358546657
 comments: true
 redirect_from: "/content/google-maps-passe-toulouse-à-la-3d-bientôt-dans-openstreetmap/"
+excerpt_separator: <!--more-->
 ---
 J'ai constaté très récemment que la vue satellite de Google Maps étaient passée en 3D isométriques sur les niveaux de zoom les plus importants.
 
@@ -13,6 +14,8 @@ Et le moins qu'on puisse dire c'est que <b><u>ça en jette</u></b> :
 <img src="/sites/xavierraffin.com/files/fabre2.png" />
 <i>Vue 3D <s>du canéropôle</s> de l'oncopôle, les laboratoires Fabre (<a href="https://maps.google.fr" target="_blank" >source Google Maps</a>)</i></center>
 <br />
+
+<!--more-->
 
 <center><img src="/sites/xavierraffin.com/files/a380s-gmap.png" />
 <i>Les A380 à Blagnac (<a href="https://maps.google.fr" target="_blank" >source Google Maps</a>)</i></center>

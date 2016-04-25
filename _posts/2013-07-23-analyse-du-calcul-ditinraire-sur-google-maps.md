@@ -8,10 +8,11 @@ excerpt_separator: <!--more-->
 ---
 Un calculateur d'itinéraire ne pourra jamais prévoir votre temps de trajet exact avec une certitude de 100%.
 
-<!--more-->
-
 Il est par exemple impossible de savoir si vous aurez les feux au vert ou non.
 Votre vitesse estimée est donc une moyenne tenant compte d'un ou de plusieurs de ces éléments :
+
+<!--more-->
+
 <ul>
 <li><u>la vitesse maximum autorisée :</u> c'est la moindre des choses</li>
 <li><u>le type de voirie :</u> en fonction de la voie : résidentiel, boulevard, autoroute ... un abattement de la vitesse maximal théorique est effectué (par exemple sur <a href="/content/pr%C3%A9sentation-de-synthese">SYNTHESE</a> nous considérons que sur autoroute, vous circulez à 95% de la vitesse maximum, alors que sur une zone résidentielle nous appliquons un 70 %)</li>

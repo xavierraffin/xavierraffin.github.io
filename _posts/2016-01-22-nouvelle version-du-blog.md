@@ -4,6 +4,7 @@ title: Nouvelle version du blog
 comments: true
 created: 1353881847
 redirect_from: "/content/nouvelle-version-du-blog/"
+excerpt_separator: <!--more-->
 ---
 
 Avec cette nouvelle année viennent les bonnes résolutions.
@@ -11,6 +12,8 @@ Avec cette nouvelle année viennent les bonnes résolutions.
 Alors voila, j'ai finalisé la refonte de mon site perso (enfin en tout cas je l'ai mis en ligne).
 
 Plus sobre, j'ai choisi le thème <a href="https://github.com/poole/hyde">Hyde</a> de Mark Otto alias <a href="https://twitter.com/mdo">@mdo</a>.
+
+<!--more-->
 
 ## Un site statique ??
 

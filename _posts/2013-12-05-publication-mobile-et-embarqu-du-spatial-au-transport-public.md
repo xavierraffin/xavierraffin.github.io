@@ -12,14 +12,14 @@ Le thème de ce numéro est :
 
 <b>"Les nouveaux sujets de l'ingénierie informatique: cloud, sécurité informatique, mobilité, protection de la vie privée"</b>.
 
-<!--more-->
-
 <div style="float:right">
 <center>
 <img src="/sites/xavierraffin.com/files/couv-interfacte-118.PNG" />
 <i>La couverture du numéro 118 d'interface</i>
 </center>
 </div>
+
+<!--more-->
 
 Les articles devaient prendre la forme de témoignages d'ingénieurs INSA travaillant dans ce domaine à destination de nos collègues et élèves-ingénieurs.
 

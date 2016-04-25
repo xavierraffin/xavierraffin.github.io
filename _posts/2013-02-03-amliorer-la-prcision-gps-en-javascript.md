@@ -4,11 +4,11 @@ title: Améliorer la précision GPS en JavaScript
 created: 1359926517
 comments: true
 redirect_from: "/content/améliorer-la-précision-gps-en-javascript/"
+excerpt_separator: <!--more-->
 ---
 <div style="float:right">
 <img src="/sites/xavierraffin.com/files/geolocalistion-javascript-html5_0.png" style="border:1px solid" alt="géolocalisation JavaScript HTML5 depuis un mobile" />
-<center><b>Géolocalisation JavaScript</b>
-<i>sources CC : <a href="http://www.b2bweb.fr/molokoloco/javascript-community-agnostic-logo-proposal/" target="_blank">b2bweb.fr</a>, <a href="http://commons.wikimedia.org/wiki/File:Geolocalisation_GPS_SAT.png" target="_blank">wikimedia</a>, <a href="https://commons.wikimedia.org/wiki/File:Multimedia-player-iphone.svg?uselang=fr" target="_blank">wikimedia</a></i></center>
+<center><b>Géolocalisation JavaScript</b></center>
 </div>
 L'arrivée d'HTML5 a été accompagné de l'apparition de nouvelles API JavaScript, permettant notamment d'accéder aux éléments hardware des terminaux : Webcam, Micro, Batterie, ... 
 
