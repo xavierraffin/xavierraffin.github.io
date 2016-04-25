@@ -6,11 +6,15 @@ comments: true
 redirect_from: "/content/améliorer-la-précision-gps-en-javascript/"
 excerpt_separator: <!--more-->
 ---
+<div style="overflow: auto;">
 <div style="float:right">
 <img src="/sites/xavierraffin.com/files/geolocalistion-javascript-html5_0.png" style="border:1px solid" alt="géolocalisation JavaScript HTML5 depuis un mobile" />
 <center><b>Géolocalisation JavaScript</b></center>
 </div>
 L'arrivée d'HTML5 a été accompagné de l'apparition de nouvelles API JavaScript, permettant notamment d'accéder aux éléments hardware des terminaux : Webcam, Micro, Batterie, ... 
+</div>
+
+<!--more-->
 
 En particulier, il existe <a href="http://www.w3schools.com/html/html5_geolocation.asp" target="_blank">une API JavaScript de géolocalisation</a> permettant de récupérer ou de suivre, la position GPS d'un téléphone mobile depuis une page Web.
 
