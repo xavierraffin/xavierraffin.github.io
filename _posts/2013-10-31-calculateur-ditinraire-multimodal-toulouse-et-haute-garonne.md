@@ -4,6 +4,7 @@ title: Calculateur d'itinéraire multimodal Toulouse et Haute-Garonne
 created: 1383258714
 comments: true
 redirect_from: "/content/calculateur-itineraire-multimodal-toulouse-haute-garonne/"
+excerpt_separator: <!--more-->
 ---
 <link rel="stylesheet" href="http://cimm.tisseo.fr/direct-mb-cimm-1.0/cimm.css" type="text/css" media="all" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" ></script>
@@ -11,7 +12,7 @@ redirect_from: "/content/calculateur-itineraire-multimodal-toulouse-haute-garonn
 
 Après <a href="/content/plan-interatif-javascript-tisseo">le plan interactif Tisséo</a>, j'ai le plaisir de vous présenter un autre projet réalisé avec <a href="http://xavierraffin.com/content/pr%C3%A9sentation-de-synthese">SYNTHESE</a> en préparation depuis plusieurs mois à Tisséo : le <b>Calculateur d'Itinéraire Multi-Modal</b> (CIMM).<br><br>
 
-excerpt_separator
+<!--more-->
 
 Ce projet, entièrement réalisé par nos équipes Tisséo est le fruit d'un partenariat entre plusieurs organisations publiques : l'état, la région Midi-Pyrennées, le département de la Haute-Garonne, Toulouse-Métropôle, et Tisséo.<br><br>
 <div style="float:right">
@@ -19,7 +20,8 @@ Ce projet, entièrement réalisé par nos équipes Tisséo est le fruit d'un par
 <img src="/sites/xavierraffin.com/files/emprise-cimm.png" /><br>
 <i>Le périmètre du calculateur est plus grand que le département</i></center>
 </div>
-Ce calculateur permet d'effectuer des itinéraires en mixant:<ul>
+Ce calculateur permet d'effectuer des itinéraires en mixant:
+<ul>
 <li>Train SNCF</li>
 <li>Transport Tisséo</li>
 <li>Cars Arcs en Ciel</li>

@@ -4,6 +4,7 @@ title: 'Innovation Tisséo : un plan interactif'
 created: 1381349144
 comments: true
 redirect_from: "/content/plan-interactif-javascript-tisseo/"
+excerpt_separator: <!--more-->
 ---
 Tisséo ouvre aujourd'hui un plan interactif de son réseau sur son site web :
 
@@ -11,7 +12,7 @@ Tisséo ouvre aujourd'hui un plan interactif de son réseau sur son site web :
 
 Cet outil inaugure un nouveau fond de plan qui se généralisera sur les autres support numériques Tisséo.
 
-excerpt_separator
+<!--more-->
 
 C'est avec un immense plaisir que je vous présente le résultat de longs mois de travail intensif :
 

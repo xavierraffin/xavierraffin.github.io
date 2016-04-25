@@ -4,6 +4,7 @@ title: 'Publication : Mobile et Embarqué, du spatial au transport public'
 created: 1386278955
 comments: true
 redirect_from: "/content/publication-mobile-et-embarque-du-spatial-au-transport-public/"
+excerpt_separator: <!--more-->
 ---
 J'ai publié un article dans le dernier numéro du <b>magasine Interface</b> (le magasine des INSA).
 
@@ -11,7 +12,7 @@ Le thème de ce numéro est :
 
 <b>"Les nouveaux sujets de l'ingénierie informatique: cloud, sécurité informatique, mobilité, protection de la vie privée"</b>.
 
-excerpt_separator
+<!--more-->
 
 <div style="float:right">
 <center>

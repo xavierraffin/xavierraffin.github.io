@@ -4,10 +4,11 @@ title: Analyse du calcul d'itinéraire sur Google Maps
 created: 1374602467
 comments: true
 redirect_from: "/content/analyse-du-calcul-ditinéraire-sur-google-maps/"
+excerpt_separator: <!--more-->
 ---
 Un calculateur d'itinéraire ne pourra jamais prévoir votre temps de trajet exact avec une certitude de 100%.
 
-excerpt_separator
+<!--more-->
 
 Il est par exemple impossible de savoir si vous aurez les feux au vert ou non.
 Votre vitesse estimée est donc une moyenne tenant compte d'un ou de plusieurs de ces éléments :
