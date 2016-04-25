@@ -74,26 +74,28 @@ Techniquement, le calculateur est hébergé et administré chez Tisséo, et la t
 <br>
 Sur la page du "site hôte", il suffit d'ajouter le code HTML suivant :
 
-<pre>
+{% highlight html %}
 <script type="text/javascript" src=".../jquery.min.js" ></script>
 <script type="text/javascript" src=".../OpenLayers.js" ></script>
 <link rel="stylesheet" href="http://cimm.tisseo.fr/direct-mb-cimm-1.0/cimm.css" type="text/css"/>
 <script src="http://cimm.tisseo.fr/ci-multimodal-v2.0" type="text/javascript"></script>
 <div id="div_load_calculateur"></div>
-</pre>
+{% endhighlight %}
 
 <u>Les éléments importants sont :</u><br>
 
 La balise d'accroche du widget : c'est à cet endroit de la page que va s'insérer le formulaire :
 
-<pre>
+{% highlight html %}
 <div id="div_load_calculateur"></div>
-</pre>
+{% endhighlight %}
 
 Le script de chargement du formulaire : il charge les données depuis les serveurs Tisséo et remplace la balise précédente par le formulaire
-<pre>
+
+{% highlight html %}
 <script src="http://cimm.tisseo.fr/ci-multimodal-v2.0" type="text/javascript"></script>
-</pre>
+{% endhighlight %}
+
 Vous remarquerez que le domaine utilisé içi est <b><i>cimm.tisseo.fr</i></b> : ce n'est pas le domaine du site hôte.<br><br>
 C'est cela qui permet de contourner les restrictions de sécurité "Cross Domain" des navigateurs.<br><br>
 En effet, une fois le formulaire chargé, celui-ci dialogue avec le serveur Tisséo (pour l'autocomplétion, et l'affichage des résultats) sans rechargement de la page.<br><br>
@@ -180,6 +182,7 @@ La réponse renvoyée à l'internaute sera l'agrégation du trajet routier jusqu
 Enfin pour d'autres requêtes comme la recherche spatiale de station VélôToulouse Symfony fait le travail sans SYNTHESE en utilisant simplement une base PostGIS.<br>
 
 <h1>Conclusion</h1>
+
 <br>
 Ce premier projet "multi-réseaux" sur lequel j'ai été amené à travailler a été une expérience éprouvante mais finalement passionante.<br>
 En effet, les délais impartis pour la réalisation étaient particulièrement serrés, et le résultat soumis au jugement de nombreux acteurs professionels du transport.<br>
