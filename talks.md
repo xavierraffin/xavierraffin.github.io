@@ -9,7 +9,7 @@ title: Talks
 
 # 2015
 
-<a href="http://xavierraffin.com/2016/04/25/conference-API-opensource-opendata-mozilla/">"Collaboration Open Source entre industriels dans le domaine du transport "</a> : Paris Open-Source Summit, 19 Novembre 2015
+<a href="http://xavierraffin.com/2015/11/19/conference-collaboration-opensource-ParisOpenSourceSummit/">"Collaboration Open Source entre industriels dans le domaine du transport "</a> : Paris Open-Source Summit, 19 Novembre 2015
 
 <a href="http://lacantine-toulouse.org/7262/l-ouverture-des-donnees-de-tisseo">"​L’ouverture des données de Tisséo"</a> : La Cantine numérique, Toulouse 10 Novembre 2015
 
