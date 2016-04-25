@@ -6,16 +6,20 @@ comments: true
 redirect_from: "/content/ipv6-fonctionnement-description-configuration/"
 excerpt_separator: <!--more-->
 ---
+<div style="overflow: auto;">
 <div style="float:right">
 <img src="/sites/xavierraffin.com/files/IPv6_logo_256.png" />
 <center>Le logo du lancement mondial d'IPv6</center>
 </div>
 Si vous suivez les actualités du monde d'internet, vous avez entendu parler d'IPv6.
 Pour les autres, il s'agit d'une nouvelle version du protocole IP qui vient prendre la relève du vénérable IPv4, le système d'adressage internet.
+</div>
+
+<!--more-->
 
 IPv6 a fait l'objet d'un <a href="http://www.worldipv6launch.org" target="_blank">lancement mondial</a> le 6/6/2012.
 A cette occasion, de nombreux FAI ont inaugurés leur offres IPv6 et des sites majeurs sont passés en IPv6 (ou venaient de le faire) :
-<!--more-->
+
 <ul>
 <li>www.google.com</li>
 <li>www.facebook.com</li>

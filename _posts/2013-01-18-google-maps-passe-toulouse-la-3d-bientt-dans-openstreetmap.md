@@ -10,12 +10,11 @@ J'ai constaté très récemment que la vue satellite de Google Maps étaient pas
 
 Et le moins qu'on puisse dire c'est que <b><u>ça en jette</u></b> :
 
-<center><img src="/sites/xavierraffin.com/files/fabre1.png" />
-<img src="/sites/xavierraffin.com/files/fabre2.png" />
-<i>Vue 3D <s>du canéropôle</s> de l'oncopôle, les laboratoires Fabre (<a href="https://maps.google.fr" target="_blank" >source Google Maps</a>)</i></center>
-<br />
+<center><img src="/sites/xavierraffin.com/files/fabre1.png" /></center>
 
 <!--more-->
+<center><img src="/sites/xavierraffin.com/files/fabre2.png" /></center>
+<center><i>Vue 3D <s>du canéropôle</s> de l'oncopôle, les laboratoires Fabre (<a href="https://maps.google.fr" target="_blank" >source Google Maps</a>)</i></center>
 
 <center><img src="/sites/xavierraffin.com/files/a380s-gmap.png" />
 <i>Les A380 à Blagnac (<a href="https://maps.google.fr" target="_blank" >source Google Maps</a>)</i></center>
