@@ -9,7 +9,7 @@ excerpt_separator: <!--more-->
 
 J'ai eu l'honneur de donner une conférence jeudi 21 Avril 2016 à la fondation Mozilla en ouverture du Meetup Opentransport #8.
 
-<img src="/images/conference-mozilla-2016.jpg">
+<img src="/public/images/conference-mozilla-2016.jpg">
 
 <!--more-->
 
