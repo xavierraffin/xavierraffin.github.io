@@ -89,6 +89,8 @@ Je base ce pari sur les faits suivants :
 * il n'y a pas d'alternative OpenSource pour la production
 * il n'y a pas de solutions propriétaire qui soit au niveau (troll inside)
 
+Si vous ne partagez pas mon point de vue n'hésitez pas à me laisser un commentaire.
+
 # Cliffhanger
 
 Où est ce que je vais après Tisséo ?
