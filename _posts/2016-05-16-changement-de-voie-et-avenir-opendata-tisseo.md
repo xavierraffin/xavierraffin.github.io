@@ -9,12 +9,14 @@ excerpt_separator: <!--more-->
 Je quitte aujourd'hui Tisséo après 6 ans d'OpenSource et 4 ans d'OpenData transport public (d'où le subtil jeu de mot du titre).
 
 C'est l'occasion de faire un petit bilan, et de décrire de quoi l'avenir de l'OpenData Toulousain sera fait.
+
 Et je vais même me risquer à un pronostic sur l'avenir de l'opensource dans le domaine du transport public au niveau mondial.
 
 <img src="/public/images/aiguillage.jpg">
 <center><u>Par Arne Hückelheim — Travail personnel, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=23003609</u></center>
 
 <!--more-->
+<br>
 
 L'idée de se billet vient d'une question qui est venue plusieurs fois de la part des utilisateurs de api.tisseo.fr : 
 
@@ -31,13 +33,13 @@ En fait c'est plutôt le contraire d'un fork, c'est une fusion :-)
 
 # Réponse longue
 
-* depuis 2001 Tisséo utilise un logiciel libre nommé **SYNTHESE** pour le calcul d'itinéraire
+* depuis 2001 Tisséo utilise un logiciel libre nommé **SYNTHESE** pour le calcul d'itinéraire et les systèmes IV temps réel
 * en 2012 Tisséo a ouvert une API basé sur ce logiciel (et que j'ai créé pour l'occasion -voir [conf mozila](http://xavierraffin.com/2016/04/25/conference-API-opensource-opendata-mozilla)-)
 * en 2013 **Kisio Digital** (ex CanalTP) filliale de la SNCF à ouvert une API OpenData : http://api.navitia.io
   Cette API est alimentée par les GTFS OpenData de nombreux réseaux dans le monde et mis à disposition par Kisio.
   Le réseau Tisséo est notamment disponible dans navitia.io (dans l'instance fr-sw), mais la qualité des données n'est pas aussi bonne que sur l'API Tisséo (limitation du GTFS et fréquence de MAJ trop faible) et il n'y a pas de temps réel
 * à partir de là, je m'inspire un peu de leur syntaxe pour préparer la v1 actuelle dans l'objectif de rendre les deux API plus proches pour les développeurs
-* en avril 2014, Kisio Digital open source son calculateur "Navitia" qui est derrière l'API navitia.io
+* en avril 2014, Kisio Digital open source son calculateur "Navitia" qui est derrière l'API navitia.io (ils sont balaises pour les noms chez Kisio)
 * en juin 2014, les acteurs du libre dans le milieu du calcul d'itinéraire transport en commun libre se rencontrent et discutent des API :
   * **OpenTripPlanner** (Conveyal) 
   * **RRRR** (Bliksemlabs financé par ministère des transports hollandais)
@@ -53,11 +55,13 @@ _Les deux premiers projets sont un peu à part : Conveyal destine plutôt OpenTr
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <u>Stifoon (Kisio) prend note du virage "analyste" OpenTripPlanner</u>
 </center>
+<br>
 
 De plus au sein de la communauté SYNTHESE il y a des divergences sur la direction que dois suivre le projet (voir [ma conférence à Mozilla](http://xavierraffin.com/2016/04/25/conference-API-opensource-opendata-mozilla)) et des problèmes techniques (la bête accuse le poids des ans : 320000 lignes de C++ bouré de template de template)
 
 Chez Tisséo après avoir évalué les options qui s'offrent à nous, mêmes les plus complexes à base de forks de patchs et d'aspirine, on décide de partir sur Navitia et de contribuer pour ajouter ce qui nous manque dans le projet.
-Sur nos outils en production, on décide d'intégrer Navitia au fur et à mesure que les fonctions offertes par SYNTHESE seront prêtes.
+
+Sur nos outils en production, on décide d'intégrer Navitia au fur et à mesure que les fonctions manquantes seront prêtes.
 
 * en septembre 2015, toutes les fiches horaires Tisséo sont générés à partir de Navitia (et d'un autre logiciel libre : [TimeTable](https://github.com/CanalTP/MttBundle))
 * en octobre 2015, sur http://api.tisseo.fr on bascule sur un mode hybride Navitia/SYNTHESE : c'est Navitia qui prend maintenant en charge l'authentification, la stack http, le parsing et formatage des requête (mais c'est encore SYNTHESE qui fait le gros des calculs)
@@ -69,13 +73,15 @@ Sur nos outils en production, on décide d'intégrer Navitia au fur et à mesure
 
 L'objectif maintenant est de créer une API v2 commune (Tisséo/Navitia) basée sur Navitia et qui offrira toutes les fonctions de l'API Tisséo en plus de celles de Navitia (pagination, filtre, isocrhone, et un tas de trucs).
 
-_Je souhaite d'ailleurs bonne chance à tous mes collègues qui vont s'atteller à cette tâche délicate, en particulier ET, OG, VP, et JL_
+_Je souhaite d'ailleurs bonne chance à tous mes collègues qui vont s'atteler à cette tâche ardue, en particulier ET, OG, VP, et JL_
 
 A partir de là, pour les developeurs, les API SNCF, navitia.io et Tisséo auront une syntaxe identique.
 On imagine que cela devrait démultipliser les possibilités, et même devenir un standard "de facto".
 
 Je suis même prêt à prendre le pari que Navitia va devenir <u>la</u> solution IV de tous les opérateurs de transport public et de mobilité dans le monde.
+
 Je base ce pari sur les faits suivants :
+
 * Navitia est opensource
 * le code est de grande qualité
 * le projet est adossé à de grands industriels
