@@ -71,7 +71,7 @@ Sur nos outils en production, on décide d'intégrer Navitia au fur et à mesure
 
 # L'avenir
 
-L'objectif maintenant est de créer une API v2 commune (Tisséo/Navitia) basée sur Navitia et qui offrira toutes les fonctions de l'API Tisséo en plus de celles de Navitia (pagination, filtre, isocrhone, et un tas de trucs).
+L'objectif maintenant est de créer une API v2 commune (Tisséo/Navitia) basée sur Navitia et qui offrira toutes les fonctions de l'API Tisséo en plus de celles de Navitia (pagination, filtre, isochrone et un tas de trucs).
 
 _Je souhaite d'ailleurs bonne chance à tous mes collègues qui vont s'atteler à cette tâche ardue, en particulier ET, OG, VP, et JL_
 

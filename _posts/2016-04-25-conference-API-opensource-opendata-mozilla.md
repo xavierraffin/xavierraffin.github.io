@@ -24,6 +24,7 @@ Voici les slides de la conférence:
 
 Et la présentation en pdf : <a href="/public/files/API-opensource-mozilla-conference-2016.pdf">API-opensource-mozilla-conference-2016.pdf</a>
 
+Enfin, si vous voulez en savoir un peu plus sur l'historique et le pourquoi du comment de l'opensource et de l'opendata à Tisséo c'est [ici](http://xavierraffin.com/2016/05/16/changement-de-voie-et-avenir-opendata-tisseo/)
 
 
 
