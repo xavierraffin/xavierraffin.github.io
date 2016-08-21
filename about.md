@@ -5,17 +5,14 @@ title: About
 
 _Yes this is a frenglish blog_
 
-Passionate about software design, I start created an IT service and development Team in a space industry small business.
-After an experience in embedded software at Airbus, I have now joined Tisséo where I hold a technical leader role.
+Passionate about software design, I held the roles of developer, architect, project manager, team leader and infrastructure manager within various organizations ranging from startups to large company.
 
-Having the responsibility of more than 200,000 daily users services is a huge source of motivation and excellence.
-Everything must work 24/24 despite the complexity of the underlying systems : mapping, routing, real-time and asynchronous distributed environment.
+I have a "fullstack" operational experience from system administration, front and back web development, to mobile and embedded systems.
+This experience was built on systems with several million requests per day, hundreds of thousands of users and very tough SLA.
 
-I also leverage my "user experience" and "digital marketing" sensibilities in the design of our products.
+I have experience and convictions in the OpenSource and OpenData areas and like to share it in this blog.
 
-Finally, I have experience and convictions in the OpenSource and OpenData areas.
-
-I live in Toulouse in France.
+I live in Toulouse France.
 
 _This blog is developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)_
 
