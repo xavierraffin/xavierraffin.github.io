@@ -14,6 +14,9 @@ baseurl:          /
 googleanalytics:  UA-36576424-1
 disqus:           xavierraffin
 
+# Allow future post to appear
+future:           true
+
 author:
   name:           'Xavier Raffin'
   twitter:        https://twitter.com/xavierraffin
