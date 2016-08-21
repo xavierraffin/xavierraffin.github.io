@@ -27,4 +27,5 @@ paginate:         5
 version:          0.1
 
 gems:
+  - jekyll-paginate
   - jekyll-redirect-from
