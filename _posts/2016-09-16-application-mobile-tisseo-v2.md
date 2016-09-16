@@ -188,6 +188,8 @@ Les prochains horaires sont en temps réel (si l'information est disponible) et 
 
 Comme pour le calcul d'itinéraire, il est possible de consulter les informations jusqu'à 15 jours maximum dans le futur.
 
+**Dans le cas des lignes de métro vous obtenez le premier et dernier départ à l'arrêt (enfin ;-)**
+
 # Widget
 
 Demandé par de nombreux utilisateurs, l'application se dote d'un widget :
