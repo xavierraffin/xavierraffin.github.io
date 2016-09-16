@@ -199,7 +199,7 @@ Demandé par de nombreux utilisateurs, l'application se dote d'un widget :
 <a href="/public/images/appli-tisseo-v2/widget.png" class="click">(Cliquez pour agrandir)</a>
 </div>
 <div class="thumbnail">
-<a href="/public/images/appli-tisseo-v2/widget-ios.png"><img src="/public/images/appli-tisseo-v2/widget-ios.png"></a>
+<a href="/public/images/appli-tisseo-v2/widget-ios.jpg"><img src="/public/images/appli-tisseo-v2/widget-ios.jpg"></a>
 <span class="title">Widget iOS</span><br>
 <a href="/public/images/appli-tisseo-v2/widget-ios" class="click">(Cliquez pour agrandir)</a>
 </div>
@@ -240,7 +240,7 @@ Vous pouvez également remarquer que nous avons changé le bouton "Y aller" pour
 
 Des amélioration techniques non visibles ont étés apportés comme une meilleure prise en compte des arrêts non desservis en cas de déviation.
 
-Enfin le support Android 6 et iOS 9 a été amélioré.
+Enfin le support Android 7 et iOS 10 a été effectué.
 
 # Conclusion
 
