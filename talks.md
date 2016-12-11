@@ -7,6 +7,8 @@ title: Talks
 
 <a href="http://xavierraffin.com/2016/04/25/conference-API-opensource-opendata-mozilla/">"OpenAPIs, Opendata & OpenSource"</a> : Mozilla Fondation, Paris 21 avril 2016
 
+<a href="http://www.toulousejug.org">"Introduction Sigfox & IoT"</a> : Toulouse JUG, Epitech Toulouse 15 septembre 2016
+
 # 2015
 
 <a href="http://xavierraffin.com/2015/11/19/conference-collaboration-opensource-ParisOpenSourceSummit/">"Collaboration Open Source entre industriels dans le domaine du transport "</a> : Paris Open-Source Summit, 19 Novembre 2015
