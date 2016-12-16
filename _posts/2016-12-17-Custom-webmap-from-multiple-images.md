@@ -194,14 +194,6 @@ gdal_translate -of GTiff -a_ullr 1 47 2 46 -a_srs EPSG:4326  input.png output.ti
 
 _If you want to be sure that image is correctly positionned use QGIS, add a raster layer and select output.gif._
 
-<div class="clearfix">
-<div class="thumbnail">
-<a href="/public/images/webmap1/output.tif"><img src="/public/images/webmap1/output.tif"></a>
-<span class="title">Geotiff RGB  (localisation and data are not real Sigfox network)</span><br>
-<a href="/public/images/webmap1/output.tif" class="click">(Clic to enlarge)</a>
-</div>
-</div>
-
 ## Change geotiff from RGB to RGBA
 
 After all this operations you will have a RGB tiff (with black and white content) and we need to add the alpha channel.
@@ -210,14 +202,6 @@ Otherwise you can't build image pyramid (following section commands will fail wi
 ```
 gdal_translate -expand rgb input.tif output.tif
 ```
-
-<div class="clearfix">
-<div class="thumbnail">
-<a href="/public/images/webmap1/output-rgba.tif"><img src="/public/images/webmap1/output-rgba.tif"></a>
-<span class="title">Geotiff RGBA (localisation and data are not real Sigfox network)</span><br>
-<a href="/public/images/webmap1/output-rgba.tif" class="click">(Clic to enlarge)</a>
-</div>
-</div>
 
 ## Build an _Image pyramid_ from Geotiff images
 
