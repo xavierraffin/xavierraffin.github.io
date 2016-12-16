@@ -86,6 +86,9 @@ Consequently, images does not have the same size :
 
 All these images are named with lat long corner information and spread accross several directories.
 
+An additionnal difficulties is that coverage are stored by country and there is overlaping images on borders.
+We will need to merge images near borders.
+
 Colors are pure Red Green Blue representing several level of coverage which is not the subject here.
 
 But as we want to build a simple public map, we will hide this complexity and change all color into a single "shinny" one.
@@ -114,18 +117,61 @@ Finally we will put in on a webmap using leaflet and with a nice background:
 
 The general principle follow several steps:
 
-1. Add geographical data into images transforming PNGs into Geotiff
-2. Change color bands to merge Red Green Blue into one band
-3. Build an _Image pyramid_ from Geotiff images
-4. Loading images into Geoserver
-5. Finalyse layer style: apply final color, merge with other layers
-6. Build TMS directory tree with Mapproxy
-7. Serve tile from this directory with NGINX
-8. Built a leaflet map displaying the map in a webpage
+1. Change color bands to merge Red Green Blue into one band
+2. Merge overlaping images
+3. Change images into gray images with alpha
+4. Add geographical data into images transforming PNGs into Geotiff
+5. Change geotiff from RGB to RGBA
+6. Build an _Image pyramid_ from Geotiff images
+7. Loading images into Geoserver
+8. Finalyse layer style: apply final color, merge with other layers
+9. Build TMS directory tree with Mapproxy
+10. Serve tile from this directory with NGINX
+11. Built a leaflet map displaying the map in a webpage
 
-## Add Geographical data to PNG
+_Note: Maybe it is possible to skip one step (especialy color manipulation) but the try I made all failed_
 
-This can be done with a simple command as soon as you know the corners coordinates (here in WGS 84)
+I won't present the python & bash script glue but only important commands and tools.
+Some steps suppose that you'll save and sort temporary images with caution.
+
+## Change color bands
+
+This is a mandatory step because Geoserver is not able to style raster with data in several "band" (See Geoserver section further).
+
+First change blue and red into green (to have a single color) with convert command:
+
+```
+convert input.png -fill "#00FF00" -opaque blue tmp.png
+convert tmp.png -fill "#00FF00" -opaque red output.png
+```
+
+## Merge overlaping images
+
+If two (or more images) overlap then we need to add coverages, which means to merge "green" areas:
+
+```
+convert -composite image1.png image2.png result.png
+```
+
+__When all merge are done, you need to
+
+## Change image into gray with alpha
+
+This is again a geoserver requirement.
+Geoserver can style only images with one channel of data.
+
+First step put all color to Green but Red and Blue Channel exist and need to be removed.
+
+```
+convert green.png -separate output%d.png
+rm output0.png output2.png
+```
+
+As _composite_ command separate channeld Red/Green/Blue in three files and as image is full green we can remove black images for red and blue channels.
+
+## Add Geographical data to image
+
+This can be done with a single command as soon as you know the corners coordinates (here in WGS 84)
 
 ```
 gdal_translate -of GTiff -a_ullr 1 47 2 46 -a_srs EPSG:4326  input.png output.tif
@@ -133,11 +179,53 @@ gdal_translate -of GTiff -a_ullr 1 47 2 46 -a_srs EPSG:4326  input.png output.ti
 
 _If you want to be sure that image is correctly positionned use QGIS, add a raster layer and select output.gif._
 
+## Change geotiff from RGB to RGBA
 
+After all this operations you will have a RGB tiff (with black and white content) and we need to add the alpha channel.
+Otherwise you can't build image pyramid (following section commands will fail with errors).
 
+```
+gdal_translate -expand rgb input.tif output.tif
+```
 
+## Build an _Image pyramid_ from Geotiff images
 
+Geoserver raster input is quite basic: it can load a single geotiff in a data store.
 
+I have hundreds of geotiff. I could merge them into a giant single one but loading it will eat a loooot of RAM and is not elegant or even practicable.
+
+The way I load it into geoserver is using an "Image pyramid".
+This require a geoserver plugin but this gives good results.
+
+_If you know better methods please put it in the comment :-)_
+
+The command for building a pyramid is _"gdal_retile"_, but there is some deformation if you use it directly if youre images are not contiguous.
+
+To avoid deformation you'll need to prepare a clean GDAL referential (a VRT file):
+
+_You can select tif files one by one or with *.tif but for a great number of image shell buffer will be overflowed_
+
+```
+gdalbuildvrt -input_file_list tilelist.txt world.vrt
+```
+
+Then you can build the pyramid from your the VRT.
+
+```
+gdal_retile.py -v -r bilinear -levels 1 -ps 2048 2048 -co "TILED=YES" -co "COMPRESS=JPEG" -targetDir ./coverage_tiles world.vrt
+```
+
+When done you have an image pyramid in the directory _"coverage_tiles"_.
+
+## Loading images into Geoserver
+
+## Finalyse layer style: apply final color, merge with other layers
+
+## Build TMS directory tree with Mapproxy
+
+## Serve tile from this directory with NGINX
+
+## Built a leaflet map displaying the map in a webpage
 
 
 
