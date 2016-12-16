@@ -119,17 +119,16 @@ The general principle follow several steps:
 
 1. Change color bands to merge Red Green Blue into one band
 2. Merge overlaping images
-3. Change images into gray images with alpha
-4. Add geographical data into images transforming PNGs into Geotiff
-5. Change geotiff from RGB to RGBA
-6. Build an _Image pyramid_ from Geotiff images
-7. Loading images into Geoserver
-8. Finalyse layer style: apply final color, merge with other layers
-9. Build TMS directory tree with Mapproxy
-10. Serve tile from this directory with NGINX
-11. Built a leaflet map displaying the map in a webpage
+3. Add geographical data into images transforming PNGs into Geotiff
+4. Change geotiff from RGB to RGBA
+5. Build an _Image pyramid_ from Geotiff images
+6. Loading images into Geoserver
+7. Finalyse layer style: apply final color, merge with other layers
+8. Build TMS directory tree with Mapproxy
+9. Serve tile from this directory with NGINX
+10. Built a leaflet map displaying the map in a webpage
 
-_Note: Maybe it is possible to skip one step (especialy color manipulation) but the try I made all failed_
+_Note: Maybe it is possible to skip one step (especialy color manipulation) but all attempts I made failed_
 
 I won't present the python & bash script glue but only important commands and tools.
 Some steps suppose that you'll save and sort temporary images with caution.
@@ -145,6 +144,19 @@ convert input.png -fill "#00FF00" -opaque blue tmp.png
 convert tmp.png -fill "#00FF00" -opaque red output.png
 ```
 
+<div class="clearfix">
+<div class="thumbnail">
+<a href="/public/images/webmap1/source2.png"><img src="/public/images/webmap1/source2.png"></a>
+<span class="title">Original image</span><br>
+<a href="/public/images/webmap1/source2.png" class="click">(Clic to enlarge)</a>
+</div>
+<div class="thumbnail">
+<a href="/public/images/webmap1/green2.png"><img src="/public/images/webmap1/green2.png"></a>
+<span class="title">All green image</span><br>
+<a href="/public/images/webmap1/green2.png" class="click">(Clic to enlarge)</a>
+</div>
+</div>
+
 ## Merge overlaping images
 
 If two (or more images) overlap then we need to add coverages, which means to merge "green" areas:
@@ -153,21 +165,24 @@ If two (or more images) overlap then we need to add coverages, which means to me
 convert -composite image1.png image2.png result.png
 ```
 
-__When all merge are done, you need to
+<div class="clearfix">
+<div class="thumbnail">
+<a href="/public/images/webmap1/green1.png"><img src="/public/images/webmap1/green1.png"></a>
+<span class="title">Image 1</span><br>
+<a href="/public/images/webmap1/green1.png" class="click">(Clic to enlarge)</a>
+</div>
+<div class="thumbnail">
+<a href="/public/images/webmap1/green2.png"><img src="/public/images/webmap1/green2.png"></a>
+<span class="title">Image 2</span><br>
+<a href="/public/images/webmap1/green2.png" class="click">(Clic to enlarge)</a>
+</div>
+<div class="thumbnail">
+<a href="/public/images/webmap1/cumul.png"><img src="/public/images/webmap1/cumul.png"></a>
+<span class="title">Cumulated image</span><br>
+<a href="/public/images/webmap1/cumul.png" class="click">(Clic to enlarge)</a>
+</div>
+</div>
 
-## Change image into gray with alpha
-
-This is again a geoserver requirement.
-Geoserver can style only images with one channel of data.
-
-First step put all color to Green but Red and Blue Channel exist and need to be removed.
-
-```
-convert green.png -separate output%d.png
-rm output0.png output2.png
-```
-
-As _composite_ command separate channeld Red/Green/Blue in three files and as image is full green we can remove black images for red and blue channels.
 
 ## Add Geographical data to image
 
@@ -179,6 +194,14 @@ gdal_translate -of GTiff -a_ullr 1 47 2 46 -a_srs EPSG:4326  input.png output.ti
 
 _If you want to be sure that image is correctly positionned use QGIS, add a raster layer and select output.gif._
 
+<div class="clearfix">
+<div class="thumbnail">
+<a href="/public/images/webmap1/output.tif"><img src="/public/images/webmap1/output.tif"></a>
+<span class="title">Geotiff RGB  (localisation and data are not real Sigfox network)</span><br>
+<a href="/public/images/webmap1/output.tif" class="click">(Clic to enlarge)</a>
+</div>
+</div>
+
 ## Change geotiff from RGB to RGBA
 
 After all this operations you will have a RGB tiff (with black and white content) and we need to add the alpha channel.
@@ -187,6 +210,14 @@ Otherwise you can't build image pyramid (following section commands will fail wi
 ```
 gdal_translate -expand rgb input.tif output.tif
 ```
+
+<div class="clearfix">
+<div class="thumbnail">
+<a href="/public/images/webmap1/output-rgba.tif"><img src="/public/images/webmap1/output-rgba.tif"></a>
+<span class="title">Geotiff RGBA (localisation and data are not real Sigfox network)</span><br>
+<a href="/public/images/webmap1/output-rgba.tif" class="click">(Clic to enlarge)</a>
+</div>
+</div>
 
 ## Build an _Image pyramid_ from Geotiff images
 
@@ -219,9 +250,61 @@ When done you have an image pyramid in the directory _"coverage_tiles"_.
 
 ## Loading images into Geoserver
 
+I won't detail here how to do this but basically:
+1. Load pyramid into a store (you need the image pyramid plugin)
+2. Create a layer from that store
+3. Create a style for that layer
+4. Merge the layer with other one in a layer group (if you need it)
+5. Youre WMS service is ready
+
+Here it is the SLD style I use:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor version="1.0.0" 
+ xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd" 
+ xmlns="http://www.opengis.net/sld" 
+ xmlns:ogc="http://www.opengis.net/ogc" 
+ xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NamedLayer>
+    <Name>Sigfox coverage</Name>
+    <UserStyle>
+      <Title>Fantastic Raster</Title>
+      <Abstract>A kickass style</Abstract>
+      <FeatureTypeStyle>
+        <Rule>
+          <Name>Coverage colorisation</Name>
+          <Title>Opaque Raster</Title>
+          <RasterSymbolizer>
+            <ChannelSelection>
+              <GreenChannel>
+                 <SourceChannelName>1</SourceChannelName>
+              </GreenChannel>
+            </ChannelSelection>
+            <ColorMap>
+              <ColorMapEntry color="#000000" quantity="0" opacity="0"/>
+              <ColorMapEntry color="#00DFFF" quantity="250" opacity="1"/> <!-- there is some noise in images and I need to display only plain color areas -->
+              <ColorMapEntry color="#00DFFF" quantity="256" opacity="1"/>
+            </ColorMap>
+            <Opacity>0.7</Opacity> <!-- you can tune transparency here -->
+          </RasterSymbolizer>
+        </Rule>
+      </FeatureTypeStyle>
+    </UserStyle>
+  </NamedLayer>
+</StyledLayerDescriptor>
+```
+
+Before merging, the is the OpenLayer preview:
+
 ## Finalyse layer style: apply final color, merge with other layers
 
+After merging with a country layer, this is the preview in OpenLayers :
+
 ## Build TMS directory tree with Mapproxy
+
+Now my favorite part (I am a mapproxy fan!), create TMS directory with mapproxy.
 
 ## Serve tile from this directory with NGINX
 
