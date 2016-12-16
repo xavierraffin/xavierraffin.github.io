@@ -18,6 +18,10 @@ excerpt_separator: <!--more-->
     width:600px;
     margin-bottom:0;
 }
+.thumbnail-med img, .screenshot-med img {
+    width:320px;
+    margin-bottom:0;
+}
 .thumbnail img, .screenshot img {
     width:210px;
     margin-bottom:0;
@@ -44,12 +48,12 @@ excerpt_separator: <!--more-->
 This post will show how to built a custom webmaps from a massive amount of PNGs.
 
 <div class="clearfix">
-<div class="thumbnail">
+<div class="thumbnail-med">
 <a href="/public/images/webmap1/png-radio.png"><img src="/public/images/webmap1/png-radio.png"></a>
 <span class="title">from this</span><br>
 <a href="/public/images/webmap1/png-radio.png" class="click">(Clic to enlarge)</a>
 </div>
-<div class="thumbnail">
+<div class="thumbnail-med">
 <a href="/public/images/webmap1/lightmap-world.png"><img src="/public/images/webmap1/lightmap-world.png"></a>
 <span class="title">to this</span><br>
 <a href="/public/images/webmap1/lightmap-world.png" class="click">(Clic to enlarge)</a>
