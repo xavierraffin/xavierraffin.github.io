@@ -69,9 +69,11 @@ docker build -t mapserver /path/of/your/dockerfile/dir
 Then create a container (I call it 'map1') and launch it:
 ```
 docker run -d --name map1 mapserver
+```
 
-# or with a data directory and port forwarding:
+Or with a data directory and port forwarding:
 
+```
 docker run -d -v /host/directory/to/map/:/container/mountpoint -p80:80  --name map1 mapserver
 ```
 
