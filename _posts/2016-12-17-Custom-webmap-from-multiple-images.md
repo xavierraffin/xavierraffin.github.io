@@ -14,7 +14,7 @@ From this:
 
 To this:
 
-![List of pngs](/public/images/webmap1/lightmap-world.png)
+![Wonderfull map](/public/images/webmap1/lightmap-world.png)
 
 To do that we will use __only free softwares__:
 
@@ -34,6 +34,10 @@ To do that we will use __only free softwares__:
 }
 .screenshot, .thumbnail {
   text-align:center;
+}
+.thumbnail-big img, .screenshot-big img {
+    width:600px;
+    margin-bottom:0;
 }
 .thumbnail img, .screenshot img {
     width:210px;
@@ -283,7 +287,7 @@ Here it is the SLD style I use:
 Before merging, the is the OpenLayer preview:
 
 <div class="clearfix">
-<div class="thumbnail">
+<div class="thumbnail-big">
 <a href="/public/images/webmap1/coverage-layer-preview.png"><img src="/public/images/webmap1/coverage-layer-preview.png"></a>
 <span class="title">Coverage layer preview in geoserver with Openlayers</span><br>
 <a href="/public/images/webmap1/coverage-layer-preview.png" class="click">(Clic to enlarge)</a>
@@ -296,7 +300,7 @@ Before merging, the is the OpenLayer preview:
 After merging with a country layer, this is the preview in OpenLayers :
 
 <div class="clearfix">
-<div class="thumbnail">
+<div class="thumbnail-big">
 <a href="/public/images/webmap1/coverage-group-layer-preview.png"><img src="/public/images/webmap1/coverage-group-layer-preview.png"></a>
 <span class="title">Final aggregated layer preview in geoserver with Openlayers</span><br>
 <a href="/public/images/webmap1/coverage-group-layer-preview.png" class="click">(Clic to enlarge)</a>
@@ -313,7 +317,55 @@ You need to define WMS source from geoserver previous URL and define a cache.
 This is my config file :
 
 ```
+services:
+  demo:
+  tms:
+    use_grid_names: true
+    # origin for /tiles service
+    origin: 'sw'
+  wmts:
+    kvp: false
+    restful: true
 
+layers:
+  - name: sigfox_cached
+    title: Layer of coverage map www.sigfox.com
+    sources: [sigfox_cache]
+
+caches:
+  sigfox_cache:
+    grids: [g]
+    sources: [geoserver]
+    meta_size: [2, 2]
+    meta_buffer: 1
+    image:
+      resampling_method: bilinear
+      encoding_options:
+        quantizer: mediancut
+    cache:
+      type: file
+      directory_layout: tms
+
+sources:
+  geoserver:
+    type: wms
+    supported_srs: ['EPSG:4326']
+    coverage:
+      bbox: [-180,-90, 180,90]
+      srs: 'EPSG:4326'
+    req:
+      url: http://127.0.0.1:8080/geoserver/sigfox-www/wms?
+      layers: www.sigfox.com
+      transparent: true
+      format: image/png
+
+grids:
+    webmercator:
+        base: GLOBAL_WEBMERCATOR
+    g:
+        base: GLOBAL_WEBMERCATOR
+        srs: 'EPSG:900913'
+        origin: 'nw'
 globals:
   cache:
     # where to store the cached images
@@ -352,7 +404,57 @@ _I restrict mapproxy to one core only because I need to code during this time an
 
 ## Serve tile from this directory with NGINX
 
+Copy your TMS directory into your NGINX server.
+
+_Self evident step : no need for comment_
+
 ## Built a leaflet map displaying the map in a webpage
 
+Here it i a sample source code with a background and our layer: (I put leaflet fullscreen to impress girls)
 
+```
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <script src="js/leaflet.js"></script>
+	<script src="js/fullscreen.js"></script>
+	<link href="fullscreen.css" rel='stylesheet' />	
+        <style>
+        #map {
+            width: 1495px; /* no comment please :-) */
+            height: 946px;
+        }
+        </style>
+        <title>Sigfox Coverage Map</title>
+    </head>
+    <body style="margin:0">
+        <div id="map">
+        </div>
+        <script>
+        var map = L.map('map', {
+	    fullscreenControl: true,
+            zoomControl:true, maxZoom:11, minZoom:2
+        }).fitBounds([[-86.1470045707,-25.4178198294],[85.3557580817,96.7495531352]]);
+
+        bgLayer = L.tileLayer('https://whatyouwant.com/{z}/{x}/{y}');
+        bgLayer.addTo(map);
+
+	overlay = L.tileLayer('http://my/nginx/server/url/{z}/{x}/{y}.png',{maxNativeZoom:8});
+	overlay.setOpacity(0.6);
+        overlay.addTo(map);
+        </script>
+    </body>
+</html>
+
+```
+
+And youre done :
+
+![Wonderfull map](/public/images/webmap1/lightmap-world.png)
 
