@@ -62,11 +62,13 @@ This docker file is based on ubuntu 14.04 official image and add ssh access for 
 
 First build docker image.
 Here I name it "mapserver"
+
 ```
 docker build -t mapserver /path/of/your/dockerfile/dir
 ```
 
 Then create a container (I call it 'map1') and launch it:
+
 ```
 docker run -d --name map1 mapserver
 ```
@@ -83,6 +85,7 @@ docker inspect map1 | grep IPAddress
 ```
 
 Then connect (login/pass = root/secretpassword) to check access
+
 ```
 ssh root@172.17.0.2 
 ```
@@ -93,6 +96,7 @@ docker exec -it map1 bash
 ```
 
 Then if you want ssh keys instead of password do:
+
 ```
 cat ~/.ssh/id_rsa.pub | ssh root@172.17.0.2 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
 ```
