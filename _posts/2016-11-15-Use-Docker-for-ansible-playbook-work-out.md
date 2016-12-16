@@ -11,6 +11,7 @@ Sigfox Infrastructure team deploy most of things with Ansible.
 In our way to full DevOps, we delegate Ansible deployment playbook creation to software development teams.
 
 But:
+
 * we don't have enough development VM or "on demand" VM to tune our scripts
 * we are humans and make a lot of iterations before having a working playbook
 

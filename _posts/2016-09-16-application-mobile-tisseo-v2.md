@@ -102,7 +102,7 @@ Dans le menu principal, vous constaterez un nouvel item "Plans de lignes" :
 
 <div class="clearfix">
 <div class="thumbnail">
-<a href="/public/images/appli-tisseo-v2/nouveau-menu.pngg"><img src="/public/images/appli-tisseo-v2/nouveau-menu.png"></a>
+<a href="/public/images/appli-tisseo-v2/nouveau-menu.png"><img src="/public/images/appli-tisseo-v2/nouveau-menu.png"></a>
 <span class="title">Menu principal</span><br>
 <a href="/public/images/appli-tisseo-v2/nouveau-menu.png" class="click">(Cliquez pour agrandir)</a>
 </div>
