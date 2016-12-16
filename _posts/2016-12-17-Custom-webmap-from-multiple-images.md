@@ -19,8 +19,9 @@ excerpt_separator: <!--more-->
     margin-bottom:0;
 }
 .thumbnail-med img, .screenshot-med img {
-    width:320px;
+    width:300px;
     margin-bottom:0;
+    padding-right: 0.1em;
 }
 .thumbnail img, .screenshot img {
     width:210px;
