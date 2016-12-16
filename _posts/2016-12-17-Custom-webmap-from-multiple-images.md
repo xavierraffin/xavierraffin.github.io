@@ -7,7 +7,7 @@ excerpt_separator: <!--more-->
 ---
 
 <style  type="text/css">
-.thumbnail {
+.thumbnail, .thumbnail-med{
   float:left;
   padding-right: 0.5em;
 }
@@ -19,9 +19,8 @@ excerpt_separator: <!--more-->
     margin-bottom:0;
 }
 .thumbnail-med img, .screenshot-med img {
-    width:300px;
+    width:350px;
     margin-bottom:0;
-    padding-right: 0.1em;
 }
 .thumbnail img, .screenshot img {
     width:210px;
@@ -31,11 +30,11 @@ excerpt_separator: <!--more-->
     margin-left: auto;
     margin-right: auto
 }
-.thumbnail .click, .screenshot .click {
+.thumbnail .click, .thumbnail-med .click, .screenshot .click {
     color:#000 !important;
     text-decoration:italic;
 }
-.thumbnail .title, .screenshot .click {
+.thumbnail .title, .thumbnail-med .click,.screenshot .click {
     font-weight:bold;
 }
 .clearfix:after {
