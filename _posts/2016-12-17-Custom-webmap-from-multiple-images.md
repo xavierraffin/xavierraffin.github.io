@@ -298,13 +298,73 @@ Here it is the SLD style I use:
 
 Before merging, the is the OpenLayer preview:
 
+<div class="clearfix">
+<div class="thumbnail">
+<a href="/public/images/webmap1/coverage-layer-preview.png"><img src="/public/images/webmap1/coverage-layer-preview.png"></a>
+<span class="title">Coverage layer preview in geoserver with Openlayers</span><br>
+<a href="/public/images/webmap1/coverage-layer-preview.png" class="click">(Clic to enlarge)</a>
+</div>
+</div>
+
+
 ## Finalyse layer style: apply final color, merge with other layers
 
 After merging with a country layer, this is the preview in OpenLayers :
 
+<div class="clearfix">
+<div class="thumbnail">
+<a href="/public/images/webmap1/coverage-group-layer-preview.png"><img src="/public/images/webmap1/coverage-group-layer-preview.png"></a>
+<span class="title">Final aggregated layer preview in geoserver with Openlayers</span><br>
+<a href="/public/images/webmap1/coverage-group-layer-preview.png" class="click">(Clic to enlarge)</a>
+</div>
+</div>
+
+
 ## Build TMS directory tree with Mapproxy
 
 Now my favorite part (I am a mapproxy fan!), create TMS directory with mapproxy.
+
+You need to define WMS source from geoserver previous URL and define a cache.
+
+This is my config file :
+
+```
+
+globals:
+  cache:
+    # where to store the cached images
+    base_dir: '/home/mapproxy/data'
+  image:
+    # without this mapproxy will simplify colors
+    paletted: false
+
+```
+
+You can try your configuration launching mapproxy with integrated demo:
+
+```
+mapproxy-util serve-develop -b 127.0.0.1:7070 mapproxy.yaml
+```
+
+If OK, you need to use seeding to fill your data directory.
+
+My seed file
+
+```
+seeds:
+  sigfox.com:
+    caches: [sigfox_cachei_light]
+    levels:
+      to: 8
+```
+
+Launch seeding (this could be very long).
+
+```
+mapproxy-seed -f mapproxy.yaml -c 1 sigfox-seed.yml
+```
+
+_I restrict mapproxy to one core only because I need to code during this time and I won't freeze my laptop_
 
 ## Serve tile from this directory with NGINX
 
