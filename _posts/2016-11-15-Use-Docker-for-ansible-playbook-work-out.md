@@ -80,6 +80,7 @@ docker run -d -v /host/directory/to/map/:/container/mountpoint -p80:80  --name m
 ```
 
 Then, you need to get container IP address:
+
 ```
 docker inspect map1 | grep IPAddress
 ```
@@ -91,6 +92,7 @@ ssh root@172.17.0.2
 ```
 
 If something goes wrong and you need a terminal on the container do:
+
 ```
 docker exec -it map1 bash
 ```
