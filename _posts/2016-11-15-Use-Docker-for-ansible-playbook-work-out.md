@@ -118,14 +118,18 @@ In /etc/ansible/hosts you will have something like this :
 ```
 
 Then check connection 
+
 ```
 ansible all -m ping -u root
 ```
 
 When done you can start working with your playbook
+
 ```
 ansible-playbook -u root deploy.yml
 ```
+
+Now you can impress sysadmins with your always working playbooks ;-)
 
 
 
