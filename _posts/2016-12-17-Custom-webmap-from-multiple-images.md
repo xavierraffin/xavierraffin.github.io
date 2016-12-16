@@ -6,27 +6,6 @@ created: 1481890103
 excerpt_separator: <!--more-->
 ---
 
-This post will show how to built a custom webmaps from a massive amount of PNGs.
-
-From this: 
-
-![List of pngs](/public/images/webmap1/png-radio.png)
-
-To this:
-
-![Wonderfull map](/public/images/webmap1/lightmap-world.png)
-
-To do that we will use __only free softwares__:
-
-* [GDAL](http://www.gdal.org)
-* [geoserver](http://geoserver.org)
-* [mapproxy](https://mapproxy.org)
-* [convert](https://www.imagemagick.org/script/convert.php)
-* [composite](https://www.imagemagick.org/script/composite.php)
-* [leaflet](http://leafletjs.com)
-
-<!--more-->
-
 <style  type="text/css">
 .thumbnail {
   float:left;
@@ -61,6 +40,32 @@ To do that we will use __only free softwares__:
   padding-bottom:1em;
 }
 </style>
+
+This post will show how to built a custom webmaps from a massive amount of PNGs.
+
+<div class="clearfix">
+<div class="thumbnail">
+<a href="/public/images/webmap1/png-radio.png"><img src="/public/images/webmap1/png-radio.png"></a>
+<span class="title">from this</span><br>
+<a href="/public/images/webmap1/png-radio.png" class="click">(Clic to enlarge)</a>
+</div>
+<div class="thumbnail">
+<a href="/public/images/webmap1/lightmap-world.png"><img src="/public/images/webmap1/lightmap-world.png"></a>
+<span class="title">to this</span><br>
+<a href="/public/images/webmap1/lightmap-world.png" class="click">(Clic to enlarge)</a>
+</div>
+</div>
+
+To do that we will use __only free softwares__:
+
+* [GDAL](http://www.gdal.org)
+* [geoserver](http://geoserver.org)
+* [mapproxy](https://mapproxy.org)
+* [convert](https://www.imagemagick.org/script/convert.php)
+* [composite](https://www.imagemagick.org/script/composite.php)
+* [leaflet](http://leafletjs.com)
+
+<!--more-->
 
 # Problem to solve
 
