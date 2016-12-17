@@ -1,3 +1,4 @@
+---
 layout: post
 title: Create a custom webmap with custom raster overlay from multiples PNGs
 comments: true
@@ -12,10 +13,6 @@ excerpt_separator: <!--more-->
 }
 .screenshot, .thumbnail {
   text-align:center;
-}
-.thumbnail-big img, .screenshot-big img {
-    width:600px;
-    margin-bottom:0;
 }
 .thumbnail-med img, .screenshot-med img {
     width:350px;
@@ -62,11 +59,13 @@ This post will show how to built a custom webmaps from a massive amount of PNGs.
 To do that we will use __only free softwares__:
 
 * [GDAL](http://www.gdal.org)
-* [geoserver](http://geoserver.org)
-* [mapproxy](https://mapproxy.org)
-* [convert](https://www.imagemagick.org/script/convert.php)
-* [composite](https://www.imagemagick.org/script/composite.php)
-* [leaflet](http://leafletjs.com)
+* [Geoserver](http://geoserver.org)
+* [Mapproxy](https://mapproxy.org)
+* [Convert](https://www.imagemagick.org/script/convert.php)
+* [Composite](https://www.imagemagick.org/script/composite.php)
+* [Leaflet](http://leafletjs.com)
+
+_Apart from production pipeline we also will use [QGIS](http://www.qgis.org) during development phase to check intermediate results._
 
 <!--more-->
 
@@ -131,13 +130,14 @@ The general principle follow several steps:
 1. Change color channels to merge Red Green Blue into one channels
 2. Merge overlapping images
 3. Add geographical data into images transforming PNGs into geotiff
-4. Change geotiff from RGB to RGBA
+4. Remove geotiff RGB palette
 5. Build an _Image pyramid_ from Geotiff images
-6. Loading images into Geoserver
-7. Finalize layer style: apply final color, merge with other layers
-8. Build TMS directory tree with Mapproxy
-9. Serve tile from this directory with NGINX
-10. Built a leaflet map on a webpage
+6. Transform images in pyramid into 1 color band images
+7. Loading images into Geoserver
+8. Finalize layer style: apply final color, merge with other layers
+9. Build TMS directory tree with Mapproxy
+10. Serve tile from this directory with NGINX
+11. Built a leaflet map on a webpage
 
 _Note: Maybe it is possible to skip one step (especialy color manipulation) but all attempts I made failed_
 
@@ -145,9 +145,9 @@ I won't present the python & bash script glue but only important commands and to
 
 ## Change color channels
 
-This is a mandatory step because Geoserver is not able to style raster with data in several "band" (See Geoserver section further).
+As said in introduction, we want a one color coverage map.
 
-First change blue and red into green (to have a single color) with convert command:
+That is why we change blue and red into green (to have a single color) with convert command:
 
 ```
 convert input.png -fill "#00FF00" -opaque blue tmp.png
@@ -169,7 +169,7 @@ convert tmp.png -fill "#00FF00" -opaque red output.png
 
 ## Merge overlapping images
 
-If two (or more images) overlap then we need to add coverages, which means to merge "green" areas:
+If two (or more) images overlap then we need to sum coverages, which means to merge "green" areas:
 
 ```
 convert -composite image1.png image2.png result.png
@@ -194,7 +194,7 @@ convert -composite image1.png image2.png result.png
 </div>
 
 
-## Add Geographical data to image
+## Add Geographical data into images
 
 This can be done with a single command as soon as you know the corners coordinates (here in WGS 84)
 
@@ -202,16 +202,36 @@ This can be done with a single command as soon as you know the corners coordinat
 gdal_translate -of GTiff -a_ullr 1 47 2 46 -a_srs EPSG:4326  input.png output.tif
 ```
 
-_If you want to be sure that image is correctly positionned use QGIS, add a raster layer and select output.gif._
+_To check that image is correctly positionned use QGIS, add a raster layer and select output.gif._
 
-## Change geotiff from RGB to RGBA
+<div class="clearfix">
+<div class="thumbnail">
+<a href="/public/images/webmap1/tif-image.png"><img src="/public/images/webmap1/tif-image.png"></a>
+<span class="title">You get a tif looking like this<br> (this is a png screenshot for your web browser)</span><br>
+<a href="/public/images/webmap1/tif-image.png" class="click">(Clic to enlarge)</a>
+</div>
+</div>
 
-After all this operations you will have a RGB tiff (with black and white content) and we need to add the alpha channel.
+## Remove geotiff RGB palette
+
+After all this operations you will have a RGB tiff with palette and we need to remove it.
 Otherwise you can't build image pyramid (following section commands will fail with errors).
 
 ```
 gdal_translate -expand rgb input.tif output.tif
 ```
+
+You can see that the palette was removed with _file_ command :
+
+```
+$ file input.tif
+input.tif: TIFF image data, little-endian, direntries=18, height=689, bps=8, compression=none, PhotometricIntepretation=RGB Palette, width=500
+
+$ file output.tif
+output.tif: TIFF image data, little-endian, direntries=16, height=689, bps=206, compression=none, PhotometricIntepretation=RGB, width=500
+
+```
+
 
 ## Build an _Image pyramid_ from Geotiff images
 
@@ -241,6 +261,141 @@ gdal_retile.py -v -r bilinear -levels 1 -ps 2048 2048 -co "TILED=YES" -co "COMPR
 ```
 
 When done you have an image pyramid in the directory _"coverage_tiles"_.
+
+## Transform images in pyramid into 1 color band images
+
+This step is required by geoserver because it can't style raster color with several color band.
+
+Firstly we add alpha channel to change from RGB to RGBA:
+
+```
+gdal_translate -b 1 -b 2 -b 3 -b mask source.tif rgba.tif
+```
+
+Secondly, we keep only band number 2 (our green color) and put it into a one band image (black and white):
+
+```
+gdal_translate -b 2 rgba.tif gray.tif
+```
+
+This is the result :
+
+<div class="clearfix">
+<div class="thumbnail">
+<a href="/public/images/webmap1/gray.png"><img src="/public/images/webmap1/gray.png"></a>
+<span class="title">One color band tiff<br> (this is a png screenshot for your web browser)</span><br>
+<a href="/public/images/webmap1/gray.png" class="click">(Clic to enlarge)</a>
+</div>
+</div>
+
+You can see differences with _file_ command :
+
+```
+$file rgba.tif
+rgba.tif: TIFF image data, little-endian, direntries=17, height=689, bps=218, compression=none, PhotometricIntepretation=RGB, width=500
+
+$ file gray.tif 
+gray.tif: TIFF image data, little-endian, direntries=16, height=689, bps=8, compression=none, PhotometricIntepretation=BlackIsZero, width=500
+
+```
+
+You can see in depth channel status with _gdalinfo_ command:
+
+```
+$ gdalinfo source.tif 
+Driver: GTiff/GeoTIFF
+Files: source.tif
+Size is 500, 689
+Coordinate System is:
+GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+        SPHEROID["WGS 84",6378137,298.257223563,
+            AUTHORITY["EPSG","7030"]],
+        AUTHORITY["EPSG","6326"]],
+    PRIMEM["Greenwich",0],
+    UNIT["degree",0.0174532925199433],
+    AUTHORITY["EPSG","4326"]]
+Origin = (1.000000000000000,47.000000000000000)
+Pixel Size = (0.002000000000000,-0.001451378809869)
+Metadata:
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  INTERLEAVE=PIXEL
+Corner Coordinates:
+Upper Left  (   1.0000000,  47.0000000) (  1d 0' 0.00"E, 47d 0' 0.00"N)
+Lower Left  (   1.0000000,  46.0000000) (  1d 0' 0.00"E, 46d 0' 0.00"N)
+Upper Right (   2.0000000,  47.0000000) (  2d 0' 0.00"E, 47d 0' 0.00"N)
+Lower Right (   2.0000000,  46.0000000) (  2d 0' 0.00"E, 46d 0' 0.00"N)
+Center      (   1.5000000,  46.5000000) (  1d30' 0.00"E, 46d30' 0.00"N)
+Band 1 Block=500x5 Type=Byte, ColorInterp=Red
+Band 2 Block=500x5 Type=Byte, ColorInterp=Green
+Band 3 Block=500x5 Type=Byte, ColorInterp=Blue
+```
+ 
+```
+$gdalinfo rgba.tif 
+Driver: GTiff/GeoTIFF
+Files: rgba.tif
+Size is 500, 689
+Coordinate System is:
+GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+        SPHEROID["WGS 84",6378137,298.257223563,
+            AUTHORITY["EPSG","7030"]],
+        AUTHORITY["EPSG","6326"]],
+    PRIMEM["Greenwich",0],
+    UNIT["degree",0.0174532925199433],
+    AUTHORITY["EPSG","4326"]]
+Origin = (1.000000000000000,47.000000000000000)
+Pixel Size = (0.002000000000000,-0.001451378809869)
+Metadata:
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  INTERLEAVE=PIXEL
+Corner Coordinates:
+Upper Left  (   1.0000000,  47.0000000) (  1d 0' 0.00"E, 47d 0' 0.00"N)
+Lower Left  (   1.0000000,  46.0000000) (  1d 0' 0.00"E, 46d 0' 0.00"N)
+Upper Right (   2.0000000,  47.0000000) (  2d 0' 0.00"E, 47d 0' 0.00"N)
+Lower Right (   2.0000000,  46.0000000) (  2d 0' 0.00"E, 46d 0' 0.00"N)
+Center      (   1.5000000,  46.5000000) (  1d30' 0.00"E, 46d30' 0.00"N)
+Band 1 Block=500x4 Type=Byte, ColorInterp=Red
+  Mask Flags: PER_DATASET ALPHA 
+Band 2 Block=500x4 Type=Byte, ColorInterp=Green
+  Mask Flags: PER_DATASET ALPHA 
+Band 3 Block=500x4 Type=Byte, ColorInterp=Blue
+  Mask Flags: PER_DATASET ALPHA 
+Band 4 Block=500x4 Type=Byte, ColorInterp=Alpha
+```
+
+```
+$ gdalinfo gray.tif 
+Driver: GTiff/GeoTIFF
+Files: gray.tif
+       gray.tif.aux.xml
+Size is 500, 689
+Coordinate System is:
+GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+        SPHEROID["WGS 84",6378137,298.257223563,
+            AUTHORITY["EPSG","7030"]],
+        AUTHORITY["EPSG","6326"]],
+    PRIMEM["Greenwich",0],
+    UNIT["degree",0.0174532925199433],
+    AUTHORITY["EPSG","4326"]]
+Origin = (1.000000000000000,47.000000000000000)
+Pixel Size = (0.002000000000000,-0.001451378809869)
+Metadata:
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  INTERLEAVE=BAND
+Corner Coordinates:
+Upper Left  (   1.0000000,  47.0000000) (  1d 0' 0.00"E, 47d 0' 0.00"N)
+Lower Left  (   1.0000000,  46.0000000) (  1d 0' 0.00"E, 46d 0' 0.00"N)
+Upper Right (   2.0000000,  47.0000000) (  2d 0' 0.00"E, 47d 0' 0.00"N)
+Lower Right (   2.0000000,  46.0000000) (  2d 0' 0.00"E, 46d 0' 0.00"N)
+Center      (   1.5000000,  46.5000000) (  1d30' 0.00"E, 46d30' 0.00"N)
+Band 1 Block=500x16 Type=Byte, ColorInterp=Green
+```
 
 ## Loading images into Geoserver
 
@@ -290,28 +445,16 @@ Here it is the SLD style I use:
 </StyledLayerDescriptor>
 ```
 
-Before merging, the is the OpenLayer preview:
+Before merging, the is the OpenLayer preview embedded in geoserver:
 
-<div class="clearfix">
-<div class="thumbnail-big">
-<a href="/public/images/webmap1/coverage-layer-preview.png"><img src="/public/images/webmap1/coverage-layer-preview.png"></a>
-<span class="title">Coverage layer preview in geoserver with Openlayers</span><br>
-<a href="/public/images/webmap1/coverage-layer-preview.png" class="click">(Clic to enlarge)</a>
-</div>
-</div>
+![webmap OpenLayer preview](/public/images/webmap1/coverage-layer-preview.png)
 
 
 ## Finalize layer style: apply final color, merge with other layers
 
-After merging with a country layer, this is the preview in OpenLayers :
+After merging with a country layer and a black overlay, this is the preview in OpenLayers :
 
-<div class="clearfix">
-<div class="thumbnail-big">
-<a href="/public/images/webmap1/coverage-group-layer-preview.png"><img src="/public/images/webmap1/coverage-group-layer-preview.png"></a>
-<span class="title">Final aggregated layer preview in geoserver with Openlayers</span><br>
-<a href="/public/images/webmap1/coverage-group-layer-preview.png" class="click">(Clic to enlarge)</a>
-</div>
-</div>
+![webmap OpenLayer preview](/public/images/webmap1/coverage-group-layer-preview.png)
 
 
 ## Build TMS directory tree with Mapproxy
