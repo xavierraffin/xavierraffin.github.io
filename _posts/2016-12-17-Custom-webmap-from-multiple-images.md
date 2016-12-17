@@ -400,6 +400,7 @@ Band 1 Block=500x16 Type=Byte, ColorInterp=Green
 ## Loading images into Geoserver
 
 I won't detail here how to do this but basically:
+
 1. Load pyramid into a store (you need the image pyramid plugin)
 2. Create a layer from that store
 3. Create a style for that layer
@@ -538,7 +539,7 @@ My seed file
 ```
 seeds:
   sigfox.com:
-    caches: [sigfox_cachei_light]
+    caches: [sigfox_cache]
     levels:
       to: 8
 ```
