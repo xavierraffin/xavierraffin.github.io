@@ -604,7 +604,7 @@ Here it i a sample source code with a background and our layer: (I put leaflet f
 
 ```
 
-And youre done :
+And __TADAAAA__ :
 
 ![Wonderfull map](/public/images/webmap1/lightmap-world.png)
 
