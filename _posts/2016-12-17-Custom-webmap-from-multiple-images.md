@@ -1,4 +1,3 @@
----
 layout: post
 title: Create a custom webmap with custom raster overlay from multiples PNGs
 comments: true
@@ -99,12 +98,11 @@ Consequently, images does not have the same size :
 
 All these images are named with lat long corner information and spread accross several directories.
 
-An additionnal difficulties is that coverage are stored by country and there is overlaping images on borders.
+One more difficulty is that coverage are stored by country and there is overlaping images on borders.
 We will need to merge images near borders.
 
-Colors are pure Red Green Blue representing several level of coverage which is not the subject here.
-
-But as we want to build a simple public map, we will hide this complexity and change all color into a single "shinny" one.
+Colors are pure Red Green Blue representing several levels of radio coverage.
+We will change all colors into a single one for a less complex and more aesthetic map.
 
 ## Goal to reach
 
@@ -130,23 +128,22 @@ Finally we will put in on a webmap using leaflet and with a nice background:
 
 The general principle follow several steps:
 
-1. Change color bands to merge Red Green Blue into one band
-2. Merge overlaping images
-3. Add geographical data into images transforming PNGs into Geotiff
+1. Change color channels to merge Red Green Blue into one channels
+2. Merge overlapping images
+3. Add geographical data into images transforming PNGs into geotiff
 4. Change geotiff from RGB to RGBA
 5. Build an _Image pyramid_ from Geotiff images
 6. Loading images into Geoserver
-7. Finalyse layer style: apply final color, merge with other layers
+7. Finalize layer style: apply final color, merge with other layers
 8. Build TMS directory tree with Mapproxy
 9. Serve tile from this directory with NGINX
-10. Built a leaflet map displaying the map in a webpage
+10. Built a leaflet map on a webpage
 
 _Note: Maybe it is possible to skip one step (especialy color manipulation) but all attempts I made failed_
 
 I won't present the python & bash script glue but only important commands and tools.
-Some steps suppose that you'll save and sort temporary images with caution.
 
-## Change color bands
+## Change color channels
 
 This is a mandatory step because Geoserver is not able to style raster with data in several "band" (See Geoserver section further).
 
@@ -170,7 +167,7 @@ convert tmp.png -fill "#00FF00" -opaque red output.png
 </div>
 </div>
 
-## Merge overlaping images
+## Merge overlapping images
 
 If two (or more images) overlap then we need to add coverages, which means to merge "green" areas:
 
@@ -304,7 +301,7 @@ Before merging, the is the OpenLayer preview:
 </div>
 
 
-## Finalyse layer style: apply final color, merge with other layers
+## Finalize layer style: apply final color, merge with other layers
 
 After merging with a country layer, this is the preview in OpenLayers :
 
