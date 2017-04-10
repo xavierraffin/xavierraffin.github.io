@@ -10,6 +10,7 @@ J'ai donné ce jeudi 6 Avril 2017 une conférence au DEVOXX de Paris au palais d
 
 <img src="/public/images/devoxxfr-2017.jpg">
 <center><i>Super organisation au DEVOXX France, comme tous les ans !</i></center>
+<br>
 
 <!--more-->
 
@@ -34,7 +35,7 @@ La mise en oeuvre d'une frugalité extrême a des conséquences à plusieurs niv
 
 Ce talk sera l'occasion de présenter toutes ces aspects et d'ouvrir une réflexion sur un réseau mondial libre et ouvert
 
-Cette conférence constitue aussi une réponse et un hommage à Pieter Hintjens dévelopeur réseau de génie, créateur de ZéroMQ, ancien président de la fondation pour une infrastructure d'information libre et ouverte décédé en octobre 2016.
+Cette conférence constitue aussi une réponse et un hommage à Pieter Hintjens dévelopeur réseau de génie, créateur de ZeroMQ, ancien président de la fondation pour une infrastructure d'information libre et ouverte décédé en octobre 2016.
 
 __Mots clefs:__ _LPWAN, IP, IPv6, AES, Messaging, Tunneling, HA, 802.11_
 

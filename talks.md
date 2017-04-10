@@ -5,7 +5,7 @@ title: Talks
 
 # 2017
 
-<a href="http://xavierraffin.com/2017/04/06/conference-iot-la-transformation-dinternet-par-la-frugalite/">"IoT, la transformation d'internet par la frugalité"</a> : DEVOXXFR, Paris, April 6 2017
+<a href="http://xavierraffin.com/2017/04/06/conference-iot-la-transformation-dinternet-par-la-frugalite/">"IoT, la transformation d'internet par la frugalité"</a> : DEVOXX France, Paris, April 6 2017
 
 # 2016
 
