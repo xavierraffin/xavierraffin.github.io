@@ -14,6 +14,8 @@ J'ai donné ce jeudi 6 Avril 2017 une conférence au DEVOXX de Paris au palais d
 
 <!--more-->
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZzIRA_Ly-GQ" frameborder="0" allowfullscreen></iframe>
+
 Voici les slides de la conférence:
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/FKv5xU4LIvvy8z" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/xavierraffin/iot-la-transformation-dinternet-par-la-frugalit" title="IoT, la transformation d&#x27;internet par la frugalité" target="_blank">IoT, la transformation d&#x27;internet par la frugalité</a> </strong> de <strong><a target="_blank" href="//www.slideshare.net/xavierraffin">Xavier Raffin</a></strong> </div>
@@ -41,7 +43,6 @@ __Mots clefs:__ _LPWAN, IP, IPv6, AES, Messaging, Tunneling, HA, 802.11_
 
 Page officielle : <a href="http://cfp.devoxx.fr/2017/talk/JPP-4595/IoT,_la_transformation_d'internet_par_la_frugalite">Devoxx 2017 talk : "IoT la transformation d'internet par la frugalité"</a>
 
-<i>La vidéo de la conférence bientôt disponible...</i>
 
 
 
