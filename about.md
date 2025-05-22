@@ -12,7 +12,9 @@ This experience was built on systems with several million requests per day, hund
 
 I have experience and convictions in the OpenSource and OpenData areas and like to share it in this blog.
 
-I live in Toulouse France.
+I live on Vancouver Island Canada.
+
+I am currently CTO of [Hottakes](https://hottakes.com)
 
 _This blog is developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)_
 
