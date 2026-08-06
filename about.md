@@ -14,7 +14,7 @@ I have experience and convictions in the OpenSource and OpenData areas and like 
 
 I live on Vancouver Island Canada.
 
-I am currently CTO of [Hottakes](https://hottakes.com)
+I am currently Fractionnal CTO & Architect of [Blobb](https://blobb.ca)
 
 _This blog is developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)_
 
